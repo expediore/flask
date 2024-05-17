@@ -16,6 +16,8 @@ import base64
 import os
 from flask_cors import CORS
 
+
+
 def svg_to_data_url(svg_data):
     # SVG 데이터를 Base64로 인코딩
     base64_encoded_svg = base64.b64encode(svg_data.encode('utf-8')).decode('utf-8')
@@ -26,7 +28,7 @@ CORS(app)
 
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name('/Users/vacatio-aaron/Desktop/crawler/hwik-316108-bdacb60623a4.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('hwik_key.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open('auto_curation').get_worksheet(0)  # 스프레드시트 이름이 'auto_curation'인 시트를 열기
 
