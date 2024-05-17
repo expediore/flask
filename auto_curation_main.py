@@ -14,6 +14,7 @@ import certifi
 from datetime import datetime, timezone
 import base64
 import os
+from flask_cors import CORS
 
 def svg_to_data_url(svg_data):
     # SVG 데이터를 Base64로 인코딩
@@ -21,6 +22,7 @@ def svg_to_data_url(svg_data):
     return f'data:image/svg+xml;base64,{base64_encoded_svg}'
 
 app = Flask(__name__)
+CORS(app)
 
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
