@@ -13,6 +13,7 @@ from pymongo import MongoClient
 import certifi
 from datetime import datetime, timezone
 import base64
+import os
 
 def svg_to_data_url(svg_data):
     # SVG 데이터를 Base64로 인코딩
@@ -316,7 +317,7 @@ def run_crawl(url):
         return {"status": "error", "message": str(e)}
     finally:
         driver.quit()
-        print("finally")
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5001))
     app.run(host='0.0.0.0', port=5001, debug=True)
