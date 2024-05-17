@@ -162,4 +162,3 @@ cython_debug/
 .DS_Store
 
 # key json
-hwik_key.json
